@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080b09">
+  <meta name="description" content="STREAKX — build better habits, track your streaks and level up your life.">
+  <title>STREAKX — Build Your Momentum</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="STREAKX home" data-page="today">
+        <span class="brand-symbol">S<span>.</span></span>
+        <span>STREAK<span class="brand-x">X</span><small>YOUR DAILY EVOLUTION</small></span>
+      </a>
+
+      <div class="side-label">WORKSPACE</div>
+      <nav class="side-nav" aria-label="Main navigation">
+        <button class="nav-item active" data-page="today"><span class="nav-icon">◈</span> Overview</button>
+        <button class="nav-item" data-page="calendar"><span class="nav-icon">▦</span> Streak calendar</button>
+        <button class="nav-item" data-page="insights"><span class="nav-icon">↗</span> Insights</button>
+        <button class="nav-item" data-page="challenges"><span class="nav-icon">✳</span> Challenges <span class="nav-count">3</span></button>
+      </nav>
+
+      <div class="side-label">PERSONAL</div>
+      <nav class="side-nav">
+        <button class="nav-item" data-page="achievements"><span class="nav-icon">♜</span> Achievements</button>
+        <button class="nav-item" data-page="profile"><span class="nav-icon">◎</span> My profile</button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="sidebar-mini">
+          <div class="mini-top"><span class="live-dot"></span> YOUR MOMENTUM</div>
+          <div class="mini-number"><span id="sideStreak">0</span> <small>day streak</small></div>
+          <div class="mini-track"><span id="sideProgress"></span></div>
+          <p>Consistency beats intensity.</p>
+        </div>
+        <button class="nav-item" data-page="settings"><span class="nav-icon">⚙</span> Settings</button>
+        <div class="sidebar-footer">STREAKX v1.0 <span>BUILT FOR PROGRESS</span></div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="mobile-brand" data-page="today"><span class="brand-symbol">S<span>.</span></span> STREAK<span class="brand-x">X</span></button>
+        <div class="breadcrumb"><span>Workspace</span><b>/</b><strong id="breadcrumbTitle">Overview</strong></div>
+        <div class="top-actions">
+          <div class="date-pill"><span class="live-dot"></span><span id="headerDate">TODAY</span></div>
+          <button class="avatar-button" data-page="profile" aria-label="Open profile"><span id="avatarInitial">A</span></button>
+        </div>
+      </header>
+
+      <div class="content">
+        <!-- TODAY -->
+        <section class="page active" id="page-today">
+          <div class="welcome-row">
+            <div>
+              <div class="eyebrow"><span class="live-dot"></span> YOUR PERSONAL EVOLUTION</div>
+              <h1 id="greetingTitle">Build your <span>momentum.</span></h1>
+              <p class="muted">Small actions. Powerful results. One day at a time.</p>
+            </div>
+            <button class="btn btn-primary add-main" id="openAddHabit">＋ New habit</button>
+          </div>
+
+          <div class="hero-grid">
+            <article class="hero-card">
+              <div class="hero-image"></div>
+              <div class="hero-shade"></div>
+              <div class="hero-content">
+                <div class="hero-kicker"><span class="fire-symbol">♨</span> THE CONSISTENCY CLUB</div>
+                <div class="hero-big"><span id="heroStreak">0</span><small> DAYS</small></div>
+                <h2>Your streak. Your story.</h2>
+                <p id="streakMessage">Every completed habit is another step forward.</p>
+                <div class="hero-bottom">
+                  <div class="avatar-stack"><i>S</i><i>+</i><i>✦</i></div>
+                  <span>SHOW UP FOR YOURSELF</span>
+                </div>
+              </div>
+              <div class="hero-ring"><div><span id="heroPercent">0%</span><small>DAILY GOAL</small></div></div>
+            </article>
+
+            <article class="momentum-card panel">
+              <div class="section-top">
+                <div><span class="eyebrow">DAILY PERFORMANCE</span><h3>Today's momentum</h3></div>
+                <span class="icon-tile">↗</span>
+              </div>
+              <div class="momentum-score"><span id="dailyPercent">0</span><small>%</small><span class="score-label">completed</span></div>
+              <div class="progress-track"><span id="dailyProgress"></span></div>
+              <div class="momentum-meta"><span id="completedLabel">0 of 0 habits</span><span id="remainingLabel">Let's begin</span></div>
+              <div class="divider"></div>
+              <div class="mini-stats">
+                <div><span class="stat-icon green">✳</span><span><strong id="xpValue">0 XP</strong><small>Total experience</small></span></div>
+                <div><span class="stat-icon purple">♜</span><span><strong id="levelValue">Level 1</strong><small>Your current rank</small></span></div>
+              </div>
+            </article>
+          </div>
+
+          <div class="section-heading">
+            <div><span class="eyebrow">YOUR ROUTINE</span><h2>Today's habits <span class="count-badge" id="habitCount">0</span></h2></div>
+            <button class="text-button" data-page="calendar">View calendar ↗</button>
+          </div>
+
+          <div class="habit-layout">
+            <div class="habit-list" id="habitList"></div>
+            <aside class="quote-card">
+              <div class="quote-mark">“</div>
+              <p id="dailyQuote">You don't need to be perfect. You just need to keep showing up.</p>
+              <div class="quote-author"><span class="quote-line"></span> YOUR DAILY REMINDER</div>
+              <div class="quote-art"><div class="art-circle"></div><div class="art-orbit"></div><div class="art-star">✳</div></div>
+            </aside>
+          </div>
+
+          <div class="section-heading challenge-heading">
+            <div><span class="eyebrow">PUSH YOUR LIMITS</span><h2>Featured challenge</h2></div>
+            <button class="text-button" data-page="challenges">Explore all ↗</button>
+          </div>
+          <div class="featured-challenge">
+            <div class="challenge-image"></div>
+            <div class="challenge-info"><span class="challenge-tag">✦ COMMUNITY FAVOURITE</span><h3>The 7-Day Reset</h3><p>Seven days. Better routines. A stronger you.</p><div class="challenge-meta"><span>▦ 7 days</span><span>✳ 150 XP reward</span></div></div>
+            <button class="btn btn-outline" id="joinFeatured">Start challenge ↗</button>
+          </div>
+        </section>
+
+        <!-- CALENDAR -->
+        <section class="page" id="page-calendar">
+          <div class="page-heading"><div><div class="eyebrow">CONSISTENCY OVER TIME</div><h1>Your <span>streak calendar.</span></h1><p class="muted">Every small win adds up. See your progress day by day.</p></div></div>
+          <div class="calendar-stats">
+            <div class="panel stat-card"><span class="stat-icon green">♨</span><strong id="calCurrent">0</strong><small>Current streak</small></div>
+            <div class="panel stat-card"><span class="stat-icon purple">♜</span><strong id="calLongest">0</strong><small>Longest streak</small></div>
+            <div class="panel stat-card"><span class="stat-icon orange">✓</span><strong id="calCompleted">0</strong><small>Habits completed</small></div>
+          </div>
+          <div class="panel calendar-panel">
+            <div class="calendar-controls"><button class="icon-button" id="prevMonth" aria-label="Previous month">←</button><h2 id="monthTitle">Month Year</h2><button class="icon-button" id="nextMonth" aria-label="Next month">→</button><button class="btn btn-outline btn-small" id="todayMonth">Today</button></div>
+            <div class="calendar-grid" id="calendarGrid"></div>
+            <div class="calendar-legend"><span><i class="legend-dot legend-none"></i> No activity</span><span><i class="legend-dot legend-low"></i> Getting started</span><span><i class="legend-dot legend-mid"></i> Good day</span><span><i class="legend-dot legend-high"></i> All done</span></div>
+          </div>
+          <div class="panel selected-day-panel"><div><span class="eyebrow">DAY DETAILS</span><h3 id="selectedDateTitle">Select a day</h3></div><p id="selectedDateInfo" class="muted">Choose a date in the calendar to review your habits.</p><div id="selectedDayHabits" class="selected-day-habits"></div></div>
+        </section>
+
+        <!-- INSIGHTS -->
+        <section class="page" id="page-insights">
+          <div class="page-heading"><div><div class="eyebrow">YOUR DATA, YOUR GROWTH</div><h1>Progress that <span>speaks.</span></h1><p class="muted">Small wins, visualized. Keep building momentum.</p></div></div>
+          <div class="insights-grid">
+            <div class="panel insight-card"><span class="stat-icon green">✓</span><small>ALL-TIME COMPLETIONS</small><strong id="insightTotal">0</strong><span class="insight-note">Habits checked off</span></div>
+            <div class="panel insight-card"><span class="stat-icon purple">↗</span><small>AVERAGE COMPLETION</small><strong id="insightAverage">0%</strong><span class="insight-note">Across active days</span></div>
+            <div class="panel insight-card"><span class="stat-icon orange">♨</span><small>BEST STREAK</small><strong id="insightBest">0 days</strong><span class="insight-note">Your personal record</span></div>
+          </div>
+          <div class="panel chart-panel"><div class="section-top"><div><span class="eyebrow">LAST 7 DAYS</span><h3>Your weekly activity</h3></div><span class="chart-chip">HABITS COMPLETED</span></div><div class="bar-chart" id="weeklyChart"></div><div class="chart-foot"><span>Consistency is built one day at a time.</span><span id="weeklyTotal">0 completions</span></div></div>
+          <div class="panel ranking-panel"><div class="section-top"><div><span class="eyebrow">ROUTINE BREAKDOWN</span><h3>Your habits at a glance</h3></div></div><div id="habitRanking"></div></div>
+        </section>
+
+        <!-- CHALLENGES -->
+        <section class="page" id="page-challenges">
+          <div class="page-heading"><div><div class="eyebrow">MAKE IT A MISSION</div><h1>Challenge <span>yourself.</span></h1><p class="muted">Choose a challenge, show up and collect your rewards.</p></div></div>
+          <div class="challenge-grid" id="challengeGrid"></div>
+          <div class="panel active-challenges"><div class="section-top"><div><span class="eyebrow">YOUR ACTIVE MISSIONS</span><h3>Mission control</h3></div></div><div id="activeChallenges"></div></div>
+        </section>
+
+        <!-- ACHIEVEMENTS -->
+        <section class="page" id="page-achievements">
+          <div class="page-heading"><div><div class="eyebrow">EVERY WIN COUNTS</div><h1>Earn your <span>stripes.</span></h1><p class="muted">Your effort deserves to be celebrated.</p></div></div>
+          <div class="achievement-summary panel"><div class="achievement-trophy">✳</div><div><span class="eyebrow">YOUR COLLECTION</span><h2><span id="badgeUnlocked">0</span> / <span id="badgeTotal">0</span> achievements unlocked</h2><p class="muted">Keep completing habits to unlock more.</p></div><div class="achievement-progress"><span id="badgeProgress"></span></div></div>
+          <div class="achievement-grid" id="achievementGrid"></div>
+        </section>
+
+        <!-- PROFILE -->
+        <section class="page" id="page-profile">
+          <div class="page-heading"><div><div class="eyebrow">YOUR JOURNEY</div><h1>Your personal <span>space.</span></h1><p class="muted">Make STREAKX yours.</p></div></div>
+          <div class="profile-layout">
+            <div class="panel profile-card"><div class="profile-avatar" id="profileAvatar">A</div><h2 id="profileNameDisplay">Alex</h2><p class="muted" id="profileTagline">Consistency is my superpower.</p><div class="profile-rank"><span>✳</span><span id="profileLevel">Level 1</span></div><div class="profile-xp"><div class="progress-track"><span id="profileXPBar"></span></div><small id="profileXPText">0 / 100 XP to next level</small></div><div class="profile-stats"><div><strong id="profileStreak">0</strong><small>Day streak</small></div><div><strong id="profileTotal">0</strong><small>Completions</small></div><div><strong id="profileBadges">0</strong><small>Badges</small></div></div></div>
+            <div class="panel profile-form"><span class="eyebrow">PROFILE SETTINGS</span><h3>About you</h3><label for="nameInput">Display name</label><input id="nameInput" maxlength="30" placeholder="Enter your name"><label for="taglineInput">Your personal motto</label><input id="taglineInput" maxlength="90" placeholder="What keeps you going?"><button class="btn btn-primary" id="saveProfile">Save changes</button><div class="divider"></div><span class="eyebrow">YOUR DATA</span><h3>Take control</h3><p class="muted small">Export your habits and history as a backup, or import a previous backup.</p><div class="data-actions"><button class="btn btn-outline" id="exportData">↓ Export backup</button><button class="btn btn-outline" id="importData">↑ Import backup</button><input type="file" id="importFile" accept=".json,application/json" hidden></div></div>
+          </div>
+        </section>
+
+        <!-- SETTINGS -->
+        <section class="page" id="page-settings">
+          <div class="page-heading"><div><div class="eyebrow">MAKE IT YOURS</div><h1>App <span>settings.</span></h1><p class="muted">Fine-tune your STREAKX experience.</p></div></div>
+          <div class="panel settings-panel"><span class="eyebrow">APPEARANCE</span><h3>Accent color</h3><p class="muted small">Choose the glow that fits your vibe.</p><div class="theme-options"><button class="theme-option selected" data-theme="green"><i class="swatch swatch-green"></i> Neon green</button><button class="theme-option" data-theme="purple"><i class="swatch swatch-purple"></i> Electric violet</button><button class="theme-option" data-theme="blue"><i class="swatch swatch-blue"></i> Ice blue</button></div><div class="divider"></div><span class="eyebrow">DAILY GOALS</span><h3>How many habits do you aim to complete?</h3><label for="goalInput">Daily target</label><input type="number" min="1" max="30" id="goalInput" value="3"><button class="btn btn-primary" id="saveGoal">Save daily goal</button><div class="divider"></div><span class="eyebrow">DATA & PRIVACY</span><h3>Your data belongs to you.</h3><p class="muted small">STREAKX saves data locally in this browser. Clearing browser storage can remove your data, so export a backup regularly.</p><button class="btn btn-outline danger-button" id="resetData">Reset all app data</button></div>
+        </section>
+      </div>
+
+      <footer class="mobile-footer"><span>STREAK<span class="brand-x">X</span></span><span>SHOW UP. LEVEL UP.</span></footer>
+    </main>
+  </div>
+
+  <!-- ADD / EDIT HABIT DIALOG -->
+  <div class="modal-backdrop" id="habitModal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-header"><div><span class="eyebrow">BUILD YOUR ROUTINE</span><h2 id="modalTitle">Create a habit</h2></div><button class="icon-button" id="closeModal" aria-label="Close dialog">×</button></div>
+      <form id="habitForm">
+        <input type="hidden" id="habitId">
+        <label for="habitName">Habit name</label><input id="habitName" maxlength="50" placeholder="e.g. Read 10 pages" required>
+        <label for="habitCategory">Category</label><select id="habitCategory"><option value="Mind">Mind & learning</option><option value="Health">Health & fitness</option><option value="Wellness">Wellness</option><option value="Productivity">Productivity</option><option value="Personal">Personal growth</option></select>
+        <label>Choose an icon</label><div class="emoji-picker" id="emojiPicker"><button type="button" class="emoji-option selected" data-emoji="✦">✦</button><button type="button" class="emoji-option" data-emoji="📚">📚</button><button type="button" class="emoji-option" data-emoji="💧">💧</button><button type="button" class="emoji-option" data-emoji="🏃">🏃</button><button type="button" class="emoji-option" data-emoji="🧘">🧘</button><button type="button" class="emoji-option" data-emoji="✍️">✍️</button><button type="button" class="emoji-option" data-emoji="🎯">🎯</button><button type="button" class="emoji-option" data-emoji="🌱">🌱</button></div>
+        <label for="habitSchedule">Schedule</label><select id="habitSchedule"><option value="daily">Every day</option><option value="weekdays">Weekdays</option><option value="weekends">Weekends</option></select>
+        <label for="habitTarget">Daily target (optional)</label><input id="habitTarget" maxlength="45" placeholder="e.g. 10 pages, 20 minutes">
+        <div class="modal-actions"><button type="button" class="btn btn-outline" id="cancelModal">Cancel</button><button type="submit" class="btn btn-primary" id="saveHabitButton">Save habit ↗</button></div>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast-region" id="toastRegion" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
